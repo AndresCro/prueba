@@ -1,5 +1,7 @@
 #Instalación de BackupPC
+
 ##Paso 1
+
 Descargar el paquete backuppc.	
 
 	apt-get -y install backuppc		
@@ -49,36 +51,36 @@ BackupPC necesita acceso directo, por lo tanto copiará la llave en respaldos pa
 	ssh-copy-id respaldos@ip
 	ssh respaldos@ip
 
-Instalación de rsync del cliente
+Instalación de rsync del cliente.
 	
 	apt-get -y install rsync
 
-Configuración del usuario respaldos del cliente para rsync
+Configuración del usuario respaldos del cliente para rsync.
 
 	visudo
 	
 	respaldos ALL=NOPASSWD: /usr/bin/rsync
 		
 ##Paso 2
-Entrar en un navegador a
+Entrar en un navegador a:
 
 	IP del servidor/backuppc 
 	storage.proyecto-becarios-cert-2019.ml/backuppc
 	
-Ingresar con el usuario backuppc y la contraseña de la preconfiguración o modificada por htpasswd
+Ingresar con el usuario backuppc y la contraseña de la preconfiguración o modificada por htpasswd.
 
 Edit hosts -> hosts
-	Borrar el host local
-	Añadir los hosts y usuarios (host | usuario)
-	directory.proyecto-becarios-cert-2019.ml | respaldos
-	database.proyecto-becarios-cert-2019.ml | respaldos
-	dns.proyecto-becarios-cert-2019.ml | respaldos 
+Borrar el host local
+Añadir los hosts y usuarios (host | usuario)
+directory.proyecto-becarios-cert-2019.ml | respaldos
+database.proyecto-becarios-cert-2019.ml | respaldos
+dns.proyecto-becarios-cert-2019.ml | respaldos 
 
 Edit hosts -> Xfer
-	Se especifica el método rsync
+	Se especifica el método rsync.
  
 Edit hosts -> Schedule
-	Se agrega a dos respaldos como mínimo en
+	Se agrega a dos respaldos como mínimo en:
 	
 	FullKeepCnt 2
  
@@ -104,13 +106,13 @@ Iniciar con Start Full Backup y con Browse Backups se visualiza los archivos cop
 
 En el servidor dentro de en el directorio /var/lib/backuppc/(host)/ se hace un bind -o mount hacia /srv/backup/(host).
 
-Instalar certificados SSL
+Instalar certificados SSL.
 
-Encender el módulo SSL de apache
+Encender el módulo SSL de apache.
 
 	a2enmod ssl
 	
-Cambiar las líneas SSL por default de apache por los certificados de Let’s Encrypt
+Cambiar las líneas SSL por default de apache por los certificados de Let’s Encrypt.
 
 	Editor  /etc/apache2/sites-available/default-ssl.conf 
 
@@ -120,17 +122,17 @@ Cambiar las líneas SSL por default de apache por los certificados de Let’s En
 	SSLCACertificatePath /srv/ssl/
 	SSLCACertificateFile /srv/ssl/fullchain.pem
 			
-Poner la página SSL de apache
+Poner la página SSL de apache.
 
 	a2ensite default-ssl
 		
-Reiniciar Apache
+Reiniciar Apache.
 
 	service apache2 reload
 		
-Redirigir el tráfico http a https
+Redirigir el tráfico http a https.
 
-Configurar el archivo de la página http por default de apache
+Configurar el archivo de la página http por default de apache.
 
 	Editor  /etc/apache2/sites-available/000-default.conf 
 
@@ -139,6 +141,6 @@ Configurar el archivo de la página http por default de apache
 	Redirect permanent / https://storage.proyecto-becarios-cert-2019.ml/
 	</Location>
 	
-Reiniciar Apache
+Reiniciar Apache.
 
 	service apache2 reload
