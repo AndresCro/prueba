@@ -54,7 +54,8 @@ Instalación de rsync del cliente
 	apt-get -y install rsync
 
 Configuración del usuario respaldos del cliente para rsync
-visudo
+
+	visudo
 	
 	respaldos ALL=NOPASSWD: /usr/bin/rsync
 		
@@ -68,7 +69,6 @@ Ingresar con el usuario backuppc y la contraseña de la preconfiguración o modi
 
 Edit hosts -> hosts
 	Borrar el host local
-	
 	Añadir los hosts y usuarios (host | usuario)
 	directory.proyecto-becarios-cert-2019.ml | respaldos
 	database.proyecto-becarios-cert-2019.ml | respaldos
@@ -91,12 +91,14 @@ Hosts -> Select a host
 	Se selecciona el host a realizar el primer backup.
 	
 Edit Config (del host seleccionado) -> Xfer
-	RsyncShareName
-	Insert /la_ruta_a_del_respaldo
-			Insert /home/respaldos
+
+RsyncShareName
+Insert /la_ruta_a_del_respaldo
+	
+	Insert /home/respaldos
 			
-	Include/Exclude
-		Cambiar el usuario por el usuario con el que está en el servidor cliente.
+Include/Exclude
+Cambiar el usuario por el usuario con el que está en el servidor cliente.
  
 Iniciar con Start Full Backup y con Browse Backups se visualiza los archivos copiados.
 
@@ -106,7 +108,7 @@ Instalar certificados SSL
 
 Encender el módulo SSL de apache
 
-		a2enmod ssl
+	a2enmod ssl
 	
 Cambiar las líneas SSL por default de apache por los certificados de Let’s Encrypt
 
