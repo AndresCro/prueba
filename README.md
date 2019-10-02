@@ -1,6 +1,6 @@
-#Instalación de BackupPC
+# Instalación de BackupPC
 
-##Paso 1
+## Paso 1
 
 Descargar el paquete backuppc.	
 
@@ -40,7 +40,7 @@ Se reinicia el servicio backuppc.
 
 	service backuppc restart
 
-###Del lado del cliente.
+### Del lado del cliente.
 Se crea el usuario respaldos.
 
 	useradd -m respaldos (puede ser cualquier nombre)
@@ -61,7 +61,7 @@ Configuración del usuario respaldos del cliente para rsync.
 	
 	respaldos ALL=NOPASSWD: /usr/bin/rsync
 		
-##Paso 2
+## Paso 2
 Entrar en un navegador a:
 
 	IP del servidor/backuppc 
@@ -107,7 +107,7 @@ Iniciar con Start Full Backup y con Browse Backups se visualiza los archivos cop
 
 En el servidor dentro de en el directorio /var/lib/backuppc/(host)/ se hace un bind -o mount hacia /srv/backup/(host).
 
-Instalar certificados SSL.
+## Instalar certificados SSL.
 
 Encender el módulo SSL de apache.
 
