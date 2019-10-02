@@ -70,11 +70,11 @@ Entrar en un navegador a:
 Ingresar con el usuario backuppc y la contraseña de la preconfiguración o modificada por htpasswd.
 
 Edit hosts -> hosts
-Borrar el host local
-Añadir los hosts y usuarios (host | usuario)
-directory.proyecto-becarios-cert-2019.ml | respaldos
-database.proyecto-becarios-cert-2019.ml | respaldos
-dns.proyecto-becarios-cert-2019.ml | respaldos 
+	Borrar el host local
+	Añadir los hosts y usuarios (host | usuario)
+	directory.proyecto-becarios-cert-2019.ml | respaldos
+	database.proyecto-becarios-cert-2019.ml | respaldos
+	dns.proyecto-becarios-cert-2019.ml | respaldos 
 
 Edit hosts -> Xfer
 	Se especifica el método rsync.
