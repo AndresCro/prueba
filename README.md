@@ -41,8 +41,8 @@ Se reinicia el servicio backuppc.
 ###Del lado del cliente.
 Se crea el usuario respaldos.
 
-		useradd -m respaldos (puede ser cualquier nombre)
-		passwd respaldos
+	useradd -m respaldos (puede ser cualquier nombre)
+	passwd respaldos
 
 BackupPC necesita acceso directo, por lo tanto copiará la llave en respaldos para ingresar de forma automática sin contraseñas.
 	
@@ -69,10 +69,10 @@ Ingresar con el usuario backuppc y la contraseña de la preconfiguración o modi
 Edit hosts -> hosts
 	Borrar el host local
 	
-		Añadir los hosts y usuarios (host | usuario)
-		directory.proyecto-becarios-cert-2019.ml | respaldos
-		database.proyecto-becarios-cert-2019.ml | respaldos
-		dns.proyecto-becarios-cert-2019.ml | respaldos 
+	Añadir los hosts y usuarios (host | usuario)
+	directory.proyecto-becarios-cert-2019.ml | respaldos
+	database.proyecto-becarios-cert-2019.ml | respaldos
+	dns.proyecto-becarios-cert-2019.ml | respaldos 
 
 Edit hosts -> Xfer
 	Se especifica el método rsync
@@ -80,21 +80,21 @@ Edit hosts -> Xfer
 Edit hosts -> Schedule
 	Se agrega a dos respaldos como mínimo en
 	
-		FullKeepCnt 2
+	FullKeepCnt 2
  
 Edit hosts -> Server
 	Se modifica el WakeupSchedule a cada media hora agregando después de cada número, el medio.
 	
-		1, 1.5, 2, 2.5, 3, 3.5 , …, 23.5
+	1, 1.5, 2, 2.5, 3, 3.5 , …, 23.5
  
 Hosts -> Select a host
 	Se selecciona el host a realizar el primer backup.
 	
 Edit Config (del host seleccionado) -> Xfer
-	RsyncShareName 
-			Insert /la_ruta_a_del_respaldo
-			
+	RsyncShareName
+	Insert /la_ruta_a_del_respaldo
 			Insert /home/respaldos
+			
 	Include/Exclude
 		Cambiar el usuario por el usuario con el que está en el servidor cliente.
  
@@ -110,27 +110,27 @@ Encender el módulo SSL de apache
 	
 Cambiar las líneas SSL por default de apache por los certificados de Let’s Encrypt
 
-Editor  /etc/apache2/sites-available/default-ssl.conf 
+	Editor  /etc/apache2/sites-available/default-ssl.conf 
 
-		SSLCertificateFile /srv/ssl/cert.pem
-		SSLCertificateKeyFile /srv/ssl/privkey.pem
-		SSLCertificateChainFile /srv/ssl/chain.pem
-		SSLCACertificatePath /srv/ssl/
-		SSLCACertificateFile /srv/ssl/fullchain.pem
+	SSLCertificateFile /srv/ssl/cert.pem
+	SSLCertificateKeyFile /srv/ssl/privkey.pem
+	SSLCertificateChainFile /srv/ssl/chain.pem
+	SSLCACertificatePath /srv/ssl/
+	SSLCACertificateFile /srv/ssl/fullchain.pem
 			
 Poner la página SSL de apache
 
-		a2ensite default-ssl
+	a2ensite default-ssl
 		
 Reiniciar Apache
 
-			service apache2 reload
+	service apache2 reload
 		
 Redirigir el tráfico http a https
 
 Configurar el archivo de la página http por default de apache
 
-Editor  /etc/apache2/sites-available/000-default.conf 
+	Editor  /etc/apache2/sites-available/000-default.conf 
 
 	ServerName storage.proyecto-becarios-cert-2019.ml
 	<Location />
@@ -139,4 +139,4 @@ Editor  /etc/apache2/sites-available/000-default.conf
 	
 Reiniciar Apache
 
-		service apache2 reload
+	service apache2 reload
